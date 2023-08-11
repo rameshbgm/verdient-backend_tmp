@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.entity.Registration;
-import com.example.repository.Registration_Repository;
+import com.example.repository.RegistrationRepository;
 
 @Service
-public class Registration_Service {
+public class RegistrationService {
 	@Autowired
-  private Registration_Repository registration_repository;
+  private RegistrationRepository registration_repository;
 
 	public Registration saveuser(Registration user) {
 		return registration_repository.save(user);
@@ -36,8 +36,8 @@ public class Registration_Service {
 	public Registration updateuser (Registration user) {
 	
 		Registration existinguser = registration_repository.findById(user.getId()).orElse(null); 
-		existinguser.setEmail_id(user.getEmail_id()); 
-		existinguser.setAddress(user.getAddress()); 
+		//existinguser.setEmail_id(user.getEmail_id()); 
+	//	existinguser.setAddress(user.getAddress()); 
 		
 		return registration_repository.save(existinguser);
 	}

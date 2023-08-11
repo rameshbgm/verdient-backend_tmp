@@ -11,32 +11,32 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.entity.Rate_Master;
+import com.example.entity.RateMaster;
 import com.example.entity.Registration;
-import com.example.service.Rate_Master_Service;
-import com.example.service.Registration_Service;
+import com.example.service.RateMasterService;
+import com.example.service.RegistrationService;
 
 @RestController
-public class RateMaster_Controller {
+public class RateMasterController {
 
 	
 	@Autowired
-	private Rate_Master_Service ratemasterservice;
+	private RateMasterService ratemasterservice;
 
     @PostMapping("/addratemaster")
-    public Rate_Master adduser(@RequestBody Rate_Master ratemaster) {
+    public RateMaster adduser(@RequestBody RateMaster ratemaster) {
     	return ratemasterservice.saveratemaster(ratemaster);
     }
     @PostMapping("/addratemasters")
-    public List<Rate_Master> addArticles(@RequestBody List<Rate_Master> ratemaster) {
+    public List<RateMaster> addArticles(@RequestBody List<RateMaster> ratemaster) {
     	return ratemasterservice.saveratemasters(ratemaster);
     }
     @GetMapping("/getallratemaster")
-    public List<Rate_Master> findAllUser() {
+    public List<RateMaster> findAllUser() {
     	return ratemasterservice.getallratemaster();
     }
     @GetMapping("/getratemasterbyid/{id}")
-    public Rate_Master findRateMasterById(@PathVariable int id) {
+    public RateMaster findRateMasterById(@PathVariable int id) {
     	System.out.println(id);
     	return ratemasterservice.getRateMasterById(id);
     }
@@ -47,7 +47,7 @@ public class RateMaster_Controller {
     
 
     @PutMapping("/updateratemaster")
-    public Rate_Master updateuser(@RequestBody Rate_Master ratemaster) {
+    public RateMaster updateuser(@RequestBody RateMaster ratemaster) {
     	return ratemasterservice.updateratemaster(ratemaster);
     }
     @DeleteMapping("/deleteratemaster/{id}")

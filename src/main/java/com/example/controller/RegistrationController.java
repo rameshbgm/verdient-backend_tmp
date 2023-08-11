@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.Registration;
-import com.example.service.Registration_Service;
+import com.example.service.RegistrationService;
 @CrossOrigin(origins="http://localhost:3000/")
 @RestController
-public class Registration_Controller {
+public class RegistrationController {
 
 	@Autowired
-	private Registration_Service userservice;
+	private RegistrationService userservice;
 
     @PostMapping("/adduser")
     public Registration adduser(@RequestBody Registration user) {

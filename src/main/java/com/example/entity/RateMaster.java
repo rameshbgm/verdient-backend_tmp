@@ -14,12 +14,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Rate_Master {
+public class RateMaster {
     @Id
     @GeneratedValue
 	int id;
-    String groupcode;
+    String groupCode;
     Long amount;
     String audit;
-    String Remark;
+    String remark;
 }
