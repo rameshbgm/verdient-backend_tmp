@@ -2,14 +2,10 @@ package com.example.controller;
 
 import java.util.List;
 
+import com.example.models.request.RateMasterRequest;
+import com.example.models.response.RateMasterResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.entity.RateMaster;
 import com.example.entity.Registration;
@@ -17,15 +13,16 @@ import com.example.service.RateMasterService;
 import com.example.service.RegistrationService;
 
 @RestController
+@RequestMapping("/api/v1")
 public class RateMasterController {
 
 	
 	@Autowired
 	private RateMasterService ratemasterservice;
 
-    @PostMapping("/addratemaster")
-    public RateMaster adduser(@RequestBody RateMaster ratemaster) {
-    	return ratemasterservice.saveratemaster(ratemaster);
+    @PostMapping("/addRateMaster")
+    public RateMasterResponse adduser(@RequestBody RateMasterRequest rateMasterRequest) {
+    	return ratemasterservice.saveratemaster(rateMasterRequest);
     }
     @PostMapping("/addratemasters")
     public List<RateMaster> addArticles(@RequestBody List<RateMaster> ratemaster) {

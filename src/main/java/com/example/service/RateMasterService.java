@@ -2,6 +2,8 @@ package com.example.service;
 
 import java.util.List;
 
+import com.example.models.request.RateMasterRequest;
+import com.example.models.response.RateMasterResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +18,15 @@ public class RateMasterService {
       @Autowired
 	  private RateMasterRepository rate_master_repository;
 
-		public RateMaster saveratemaster(RateMaster rate_master) {
-			return rate_master_repository.save(rate_master);
+		public RateMasterResponse saveratemaster(RateMasterRequest rateMasterRequest) {
+			// convert RateMasterRequest to RateMaster Entity and save
+			RateMaster rate_master =new RateMaster();
+
+			RateMaster rateMaster =  rate_master_repository.save(rate_master);
+
+			// convert  RateMaster Entity  to RateMasterResponse  and return
+			RateMasterResponse response = new RateMasterResponse();
+			return response;
 		}
 		
 		public List<RateMaster> saveratemasters(List<RateMaster> rate_master) {
